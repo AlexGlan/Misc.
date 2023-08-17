@@ -1,4 +1,4 @@
-class BuildArrayFromPermutation {
+class Solution {
     public int[] buildArray(int[] nums) {
         int[] ans;
         ans = new int[nums.length];
