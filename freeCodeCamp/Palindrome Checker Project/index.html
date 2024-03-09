@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Palindrome Checker Project</title>
+</head>
+<body>
+    <main class="container">
+        <img src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" alt="freeCodeCamp Logo" class="fcc-logo">
+        <h1 class="title">Is it a Palindrome?</h1>
+        <div class="palindrome-card">
+            <label for="user-input" class="palindrome-card__label">Enter in text to check for a palindrome: </label>
+            <input id="text-input" class="palindrome-card__input" type="text">
+            <button id="check-btn" class="palindtome-card__button--submit">Check</button>
+
+            <div id="result" class="palindrome-card__result">
+                <p class="palindtome-card__result-text"></p>
+            </div>
+        </div>
+        <div class="info-card">
+            <p class="info-card__description">
+                <span role="img" aria-label="light-bulb">💡</span>
+                A
+                <dfn>palindrome</dfn>
+                is a word or sentence that's spelled the same way both forward and backward, 
+                ignoring punctuation, case, and spacing. 
+            </p>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
