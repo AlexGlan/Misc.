@@ -1,0 +1,131 @@
+:root {
+    --ff-serif-header: 'Castoro Titling', serif;; 
+    --ff-sans-body: 'Lato', sans-serif;
+
+    --fs-header: 2.3rem;
+    --fs-body: 1.6rem; 
+
+    --clr-light: #ffffff;
+    --clr-dark:#1b1c31;
+    --clr-grey:#3a3b4f;
+    --clr-alert-dark: #850001;
+    --clr-alert-light: #ffaead;
+    --clr-golden-yellow: #feac32;
+    --clr-gradient: linear-gradient(#fecc4c, #ffac33);
+}
+
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+    overflow: auto;
+    background-color: var(--clr-dark);
+    font-family: var(--ff-sans-body);
+    font-size: var(--fs-body);
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;  
+    padding: 2.2rem 1.2rem 2.2rem 1.2rem; 
+}
+
+.fcc-logo {
+    display: block;
+    height: 1.8rem;
+    max-width: 100%;
+    margin-bottom: 1.6rem;
+}
+
+.title {
+    font-family: var(--ff-serif-header);
+    font-size: var(--fs-header);
+    color: var(--clr-light);
+    text-align: center;
+    margin: 1.2rem auto;
+    max-width: 20rem;
+    line-height: 1.25;
+}
+
+.form {
+    color: var(--clr-light);
+    background-color: var(--clr-grey);
+    text-align: center;
+    border: .15rem solid var(--clr-light);
+    width: 90%;
+    max-width: 31rem;
+}
+
+fieldset {
+    border: 0 none;
+    padding: 2.4rem;
+}
+
+.form__label {
+    display: inline-block;
+    color: var(--clr-light);
+    font-size: var(--fs-body);
+    margin-bottom: .3rem;
+    font-weight: 300;
+}
+
+.form__input {
+    width: 100%;
+    height: 3.7rem;
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    font-size: var(--fs-header);
+    line-height: 1.4;
+    border: .01rem solid var(--clr-light);
+    margin: 1rem 0 1rem 0;
+    padding: .3rem .7rem .3rem .7rem;
+}
+
+.form__button--submit {
+    width: 100%;
+    height: 3.2rem;
+    cursor: pointer;
+    text-decoration: none;
+    background-image: var(--clr-gradient);
+    border: .1em solid var(--clr-golden-yellow);
+    font-size: 1.5rem;
+    margin-top: .6rem;
+}
+
+.output {
+    margin-top: 1.2rem;
+    padding: 1.2rem .8rem .8rem .8rem;
+    color: var(--clr-light);
+    background-color: var(--clr-grey);
+    font-family: var(--ff-serif-header);
+    font-size: var(--fs-header);
+    text-align: center;
+    border: .15rem solid var(--clr-light);
+    width: 90%;
+    max-width: 31rem;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.alert {
+    font-family: var(--ff-sans-body);
+    font-weight: 300;
+    color: var(--clr-alert-dark);
+    background-color: var(--clr-alert-light);
+    border: .15rem solid var(--clr-alert-dark);
+    font-size: 2rem;
+    padding: 1rem;
+}
