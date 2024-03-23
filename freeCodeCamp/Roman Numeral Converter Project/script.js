@@ -19,6 +19,13 @@ const ROMAN_NUMERALS = {
     I:  1
 };
 
+/**
+ * Validates user input to meet the following criteria:
+ * 1) input number is an integer
+ * 2) 0 < n <= 3999 
+ * @param {number} input - User input to be validated
+ * @returns {boolean} Whether the user input is valid (true) or not (false)
+ */
 const validateInput = (input) => {
     let isValidInput = false;
     if (input === '') {
@@ -35,6 +42,11 @@ const validateInput = (input) => {
     }
 }
 
+/**
+ * Converts a decimal number to a Roman numeral representation
+ * @param {number} decimalNumber - Number to convert to Roman numeral
+ * @returns {void} Updates DOM with the result
+ */
 const convertDecimalToRoman = (decimalNumber) => {
     const isValidInput = validateInput(decimalNumber);
     if (!isValidInput) {
