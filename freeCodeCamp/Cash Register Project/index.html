@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Cash Register Project</title>
+</head>
+<body>
+    <main class="container">
+        <img src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" alt="freeCodeCamp Logo" class="fcc-logo">
+        <h1 class="title">Cash Register Project</h1>
+
+        <div id="change-due" class="result"></div>
+        <div class="user-input">
+            <label for="cash" class="user-input__label">Enter cash from customer:</label>
+            <input id="cash" type="number" class="user-input__input-field" value="">
+            <button id="purchase-btn" class="user-input__button">Purchase</button>
+        </div>
+        
+        <div class="cash-register-card">
+            <div class="left-col">
+                <img src="./images/cash-register-vector-graphic.png" alt="Cash Register Vector Graphic" class="left-col__image">
+            </div>
+            <div class="right-col">
+                <p id="price" class="right-col__price">Total: $ 326</p>
+                <h2 class="right-col__header">Change in drawer:</h2>
+                <div id="cash-drawer" class="right-col__drawer">
+                    <p class="right-col__drawer__item">Pennies: </p>
+                    <p class="right-col__drawer__item">Nickels: </p>
+                    <p class="right-col__drawer__item">Dimes: </p>
+                    <p class="right-col__drawer__item">Quarters: </p>
+                    <p class="right-col__drawer__item">Ones: </p>
+                    <p class="right-col__drawer__item">Fives: </p>
+                    <p class="right-col__drawer__item">Tens: </p>
+                    <p class="right-col__drawer__item">Twenties: </p>
+                    <p class="right-col__drawer__item">Hundreds: </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

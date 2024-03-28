@@ -1,0 +1,148 @@
+:root {
+    --ff-sans-body: "Raleway", sans-serif;
+
+    --clr-light: #ffffff;
+    --clr-light-grey: #dfdfe2;
+    --clr-dark:#000000;
+    --clr-dark-blue:#0a0a23;
+    --clr-yellow: #feac32;
+    --clr-gradient: linear-gradient(#fecc4c, #ffac33);
+}
+
+*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+body {
+    overflow: auto;
+    background-color: var(--clr-dark-blue);
+    font-family: var(--ff-sans-body);
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem .6rem; 
+}
+
+.fcc-logo {
+    height: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.title {
+    color: var(--clr-light-grey);
+    font-size: 2.3rem;
+    margin: 1.3rem 0;
+    text-align: center;
+}
+
+.result {
+    color: var(--clr-light);
+    font-size: 1.2rem;
+    margin: .5rem 0 1.5rem 0;
+}
+
+.user-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-input__label {
+    color: var(--clr-light-grey);
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.user-input__input-field {
+    width: 90%;
+    padding: .4rem;
+    margin: 1rem 0;
+    font-size: 1rem;
+}
+
+.user-input__button {
+    cursor: pointer;
+    width: 45%;
+    height: 1.8em;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--clr-dark);
+    border-width: 3px;
+    border-color: var(--clr-yellow);
+    background-color: var(--clr-yellow);
+    background-image: var(--clr-gradient);
+    margin: .6em
+}
+
+.cash-register-card {
+    display: grid;
+    place-items: center;
+    grid-template-columns: auto auto;
+    max-width: 46rem;
+    width: 80%;
+}
+
+.left-col__image {
+    height: auto;
+}
+
+.right-col {
+    display: flex;
+    height: 100%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem 1.5rem;
+}
+
+.right-col__price {
+    color: var(--clr-light-grey);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.right-col__header {
+    color: var(--clr-light-grey);
+    text-align: center;
+}
+
+.right-col__drawer__item {
+    color: var(--clr-light-grey);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: .4rem;
+}
+
+@media (max-width: 730px) {
+    .cash-register-card {
+        display: block;
+    }
+
+    .left-col__image {
+        max-height: 7rem;
+        margin: 1.5rem auto .2rem auto;
+    }
+
+    .right-col__price {
+        margin-bottom: .5rem;
+    }   
+}
