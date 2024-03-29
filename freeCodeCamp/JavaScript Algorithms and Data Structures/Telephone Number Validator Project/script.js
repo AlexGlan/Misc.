@@ -3,6 +3,11 @@ const resultsDiv = document.getElementById('results-div');
 const checkBtn = document.getElementById('check-btn');
 const clearBtn = document.getElementById('clear-btn');
 
+/**
+ * Checks if entered string is a valid US telephone number
+ * @param {string} phone - string representing a phone number
+ * @returns {void} Updates DOM with the result
+ */
 const checkPhoneNumber = (phone) => {
     if (!phone) {
         alert('Please provide a phone number');
@@ -12,10 +17,10 @@ const checkPhoneNumber = (phone) => {
     const phoneFormat = /^1?([-(\s]+)?\d{3}([-)\s]+)?\d{3}(?:[-\s]+)?\d{4}$/i;
     const matchResult = phone.match(phoneFormat);
     let validParentheses = true;
-
+    // Check if phone number contains any parentheses
     const hasOpenParentheses = matchResult && matchResult[1] && matchResult[1].includes('(');
     const hasClosedParentheses = matchResult && matchResult[2] && matchResult[2].includes(')');
-    
+    // Check if parentheses were closed properly
     if (hasOpenParentheses) {
         validParentheses = hasClosedParentheses;
     } else if (hasClosedParentheses) {
