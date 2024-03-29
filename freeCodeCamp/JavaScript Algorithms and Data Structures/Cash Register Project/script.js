@@ -29,10 +29,20 @@ const currencyUnitValues = {
     "PENNY": 0.01
 }
 
+/**
+ * Displays current price to the user
+ * @param {number} price - Current unit price
+ * @returns {void} Updates DOM with the current price
+ */
 const updatePrice = (price) =>  {
     priceSpan.textContent = `Total: ${price}$`;
 }
 
+/**
+ * Displays the amount of cash in the drawer per currency unit to the user
+ * @param {Array<HTMLSpanElement>} arr - Array of HTML span elements
+ * @returns {void} Updates DOM with new values
+ */
 const updateCashDrawer = (arr) => {
     for (let i = 0; i < arr.length; i++) {
         const currencyUnit = arr[i];
@@ -41,6 +51,13 @@ const updateCashDrawer = (arr) => {
     }
 }
 
+/**
+ * Displays drawer status after transaction:
+ * 1) CLOSED - if the amount of cash in drawer is equal to the change due
+ * 2) OPEN - if the amount of cash in drawer is greater than the change due
+ * @param {number} remainigCashInDrawer - Remaining amount of cash in the drawer
+ * @returns {void} Updates DOM with the status
+ */
 const updateResultStatus = (remainigCashInDrawer) => {
     if (remainigCashInDrawer === 0) {
         result.innerHTML += `<p>Status: CLOSED<p>`;
@@ -49,6 +66,11 @@ const updateResultStatus = (remainigCashInDrawer) => {
     }
 }
 
+/**
+ * Validates that cash amount is a valid number that is greater than 0
+ * @param {number} cash - Cash amount from customer
+ * @returns {boolean} True if cash amount is valid, otherwise false
+ */
 const validateInput = (cash) => {
     if (isNaN(cash) || cash <= 0) {
         alert('Please enter a valid number');
@@ -57,6 +79,11 @@ const validateInput = (cash) => {
     return true;
 }
 
+/**
+ * Checks whether the customer paid with the exact amount or doesn't have enough cash for purchase
+ * @param {number} changeDue - The amount of change to return to the customer
+ * @returns {boolean} True if user paid wth the exact amount or doesn't have enough cash, otherwise false
+ */
 const checkExactOrZeroCash = (changeDue) => {
     if (changeDue === 0) {
         result.innerHTML = `<p>No change due - customer paid with exact cash</p>`;
@@ -68,6 +95,13 @@ const checkExactOrZeroCash = (changeDue) => {
     return false; 
 }
 
+/**
+ * Checks if the amount of cash in drawer is less than the change due
+ * @param {number} remainigCashInDrawer - Remaining amount of cash in the drawer
+ * @param {number} price - Current unit price
+ * @param {number} cash - Cash amount from customer
+ * @returns {boolean} True if there's not enough cash in the drawer, otherwise false
+ */
 const checkInsufficientFunds = (remainigCashInDrawer, price, cash) => {
     if (remainigCashInDrawer + price < cash) {
         result.innerHTML = `<p>Status: INSUFFICIENT_FUNDS<p>`;
@@ -76,8 +110,18 @@ const checkInsufficientFunds = (remainigCashInDrawer, price, cash) => {
     return false;
 }
 
+/**
+ * Calculates the sum of cash in the drawer
+ * @returns {number} Remaining total amount of cash in the drawer
+ */
 const calculateCashInDrawer = () => parseFloat(cid.reduce( (acc, currVal) => acc + currVal[1], 0 ).toFixed(2));
 
+/**
+ * Returns change to the customer based on the price of the item,
+ * the amount of cash provided by the customer,and the amount of cash in the cash drawer
+ * @param {number} cash - Cash amount from customer
+ * @returns {void} Updates DOM with the result
+ */
 const returnChange = (cash) => {
     if (!validateInput(cash)) {
         return;
@@ -105,6 +149,7 @@ const returnChange = (cash) => {
         }  
     }
 
+    // Check if drawer cannot return the exact change
     if (changeDue !== 0) {
         cid = JSON.parse(JSON.stringify(oldDrawerValues));        
         result.innerHTML = '<p>Status: INSUFFICIENT_FUNDS</p>';
