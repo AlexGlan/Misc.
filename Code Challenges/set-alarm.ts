@@ -18,14 +18,14 @@ const setAlarm = (alarm: string): string => {
     // Get current time
     const currentDate: Date = new Date();
     const currenHours: number = currentDate.getHours();        
-    const currentMinutes:number = currentDate.getMinutes();
+    const currentMinutes: number = currentDate.getMinutes();
 
     // Get time from input
     const [alarmHours, alarmMinutes]: number[] = alarm.split(':').map(Number);
 
     // Calculate difference between input time and current time
-    const hourDifference:number = alarmHours - currenHours;
-    const minuteDifference:number = alarmMinutes - currentMinutes;
+    const hourDifference: number = alarmHours - currenHours;
+    const minuteDifference: number = alarmMinutes - currentMinutes;
 
     // Calculate the remainig time before set alarm based on time difference:
     // Calculate hours
