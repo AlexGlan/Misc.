@@ -10,6 +10,12 @@ const statTableRowIds = new Set();
 
 const API_ENDPOINT = ' https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/';
 
+/**
+ * Validates and cleans user input before an API call
+ * Supports input in string of characters or string of numbers (id) format
+ * @param {string} input - User input to be validated
+ * @returns {string} Returns cleaned string if it's in valid format, otherwise returns empty (falsy) string
+ */
 const validateAndCleanInput = (input) => {
     const cleanedInp = input
         .replace(/[^\w\s\-]/g, '')
@@ -22,12 +28,24 @@ const validateAndCleanInput = (input) => {
         : '';
 }
 
+/**
+ * Gets pokemon type data and returns HTML template literal with the result
+ * @param {Array.<Object>} types - Array of objects containing pokemon types (at least 1)
+ * @returns {string} Template literal containing HTML <span> elements with pokemon types,
+ * ready to be inserted into DOM
+ */
 const getTypes = (types) => {
     return types
         .map(item => `<span class="type ${item.type.name}">${item.type.name}</span>`)
         .join('');      
 }
 
+/**
+ * Gets pokemon stats (HP, Attack, Defense, Sp. Attack, Sp. Defense, Speed) 
+ * and updates table rows with the result
+ * @param {Array.<Object>} stats - Array of objects containing pokemon stats
+ * @returns {void} Updates DOM
+ */
 const updateStats = (stats) => {
     stats.forEach((item) => { 
         document.getElementById(item.stat.name).innerHTML = item.base_stat;
@@ -35,6 +53,11 @@ const updateStats = (stats) => {
     });
 }
 
+/**
+ * Renders pokemon data from parsed JSON and updates DOM with the result
+ * @param {Object} data - Parsed JSON object containing all pokemon data to be processed
+ * @returns {void} Updates DOM
+ */
 const showPokemonData = (data) => {
     const { sprites, stats, types } = data;
     nameSpan.textContent = data.name.toUpperCase();
@@ -46,24 +69,36 @@ const showPokemonData = (data) => {
     updateStats(stats);
 }
 
+/**
+ * Makes an API call to get data of user specified pokemon and renders it to the user
+ * @returns {void} Passes data to helper functions to update DOM with the result (pokemon data or error)
+ */
 const fetchPokemonData = async () => {
     try {
+        // Validate user input
         const pokemonToSearch = validateAndCleanInput(formInput.value);
         if (!pokemonToSearch) {
             alert('Please enter a valid pokémon name or id');
             clearData();
             return;
         }
+        // Make API call and parse JSON data
         const response = await fetch(API_ENDPOINT + pokemonToSearch);
-        const data = await response.json();       
+        const data = await response.json(); 
+        // Render result      
         showPokemonData(data);
     } catch (err) {
+        // Display error and clear all data
         alert('Pokémon not found');
         console.error(err);
         clearData();
     }
 }
 
+/**
+ * Clears all rendered data in case of an error
+ * @returns {void} Updates DOM
+ */
 const clearData = () => {
     nameSpan.textContent = '';
     idSpan.textContent = '';
