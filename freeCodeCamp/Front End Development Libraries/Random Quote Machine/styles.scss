@@ -1,0 +1,129 @@
+$font-stack: 'Raleway', sans-serif;
+$color-light: #fff;
+
+@mixin transition($prop) {
+    transition: $prop 1s ease;
+}
+
+*, 
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    @include transition(background-color);
+    overflow: auto;
+    font-family: $font-stack;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .quote-card {
+        max-width: 35rem;
+        width: 90%;
+        min-height: 15rem;
+        background-color: $color-light;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2.5rem 2.8rem;
+        border-radius: .3rem;
+            
+        .quote-card__quote {
+            @include transition(opacity);
+            font-size: 1.8rem;
+            font-weight: 500;
+            text-align: center;
+
+            .quote-text {
+                display: inline;
+            }
+
+            .quote-icon {
+                @include transition(color);
+                font-size: 2.1rem;
+                margin-right: .25rem;
+            }
+
+            .quote-text {
+                @include transition(color);
+            }
+        }
+        
+        .quote-card__author {
+            @include transition(color);
+            font-size: 1.15rem;
+            align-self: flex-end;
+            margin-top: 1.3rem;
+        }
+        
+        .quote-card__actions {
+            display: flex;       
+            width: 100%;
+            margin-top: 1.8rem;
+
+            .action {
+                @include transition(background-color);
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 2.5rem;
+                text-decoration: none;
+                border-radius: .25em;
+                margin-right: .3rem;
+
+                .fa-brands {
+                    text-align: center;
+                    font-size: 1.2rem;
+                    color: $color-light;
+                }
+            }           
+
+            .new-btn {
+                @include transition(background-color);
+                cursor: pointer;
+                padding: .8em 1.4em;
+                border: none;
+                border-radius: .25em;
+                margin-left: auto;
+                color: $color-light;
+            }
+        }    
+    }
+}
+
+.hover-effect:hover {
+    opacity: .9;
+    transform: translateY(-2px);
+}
+
+.hover-effect:active {
+    transform: translateY(-1px);
+}
+
+@media (max-width: 310px) {
+    .quote-card__actions {
+        flex-direction: column-reverse;
+        align-items: center;
+
+        .action {
+            height: 2.3rem;
+            margin-right: 0 !important;
+            margin-top: 1rem;
+        }
+        
+        .new-btn {
+            margin-left: 0 !important;
+        }
+    }
+}
