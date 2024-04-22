@@ -1,0 +1,30 @@
+@use 'variables' as var;
+
+@mixin border-style($width, $pos: default) {
+    @if $pos == default {
+        border: $width solid black;
+    }
+    @else {
+        border-#{$pos}: $width solid black;
+    }
+}
+
+@mixin card-style() {
+    background-color: var.$clr-primary;
+    @include border-style(1px);
+    box-shadow: var.$shadow;
+}
+
+@mixin flex($prop) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $prop;
+    align-items: $prop;
+}
+
+@mixin code-font() {
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 600;
+}

@@ -1,0 +1,131 @@
+@use './' as *;
+
+.hidden { display: none; }
+
+.top-bar {
+    background-color: $clr-top-bar;
+    @include border-style(1px, bottom);
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    font-family: $font-top-bar;
+    font-size: .9rem;
+    padding: .5rem .7rem;
+
+    .fcc-icon {
+        font-size: 1.5rem;
+    }
+
+    .header {
+        margin: 0 .5rem;
+    }
+
+    .btn {
+        cursor: pointer;
+        font-size: 1.2em;
+        border: none;
+        background-color: $clr-top-bar;
+        margin-left: auto;
+    }
+
+    .btn:hover {
+        color: #57e2b1;
+    }
+}
+
+.previewer {
+    @include card-style();
+    width: 90vw;
+    max-width: 50rem;
+    margin: 1rem 0;
+
+    .preview__text {
+        padding: 0 .8rem;
+        font-size: 1.1rem;
+        min-height: 10rem;
+        overflow-wrap: break-word;
+        font-family: $font-primary;
+        color: $previewer-font-clr;
+        font-size: .9rem;
+        line-height: 1.5;
+        
+        h1 {
+            @include border-style(2px, bottom);
+            padding-bottom: .1rem;
+            margin: 1rem 0;
+        }
+
+        h2 {
+            @include border-style(1px, bottom);
+            padding-bottom: .1rem;
+            margin: 1rem 0; 
+        }
+
+        h3 { margin: 1rem 0; }
+
+        p { margin: .6rem 0; }
+
+        code {
+            @include code-font();
+            background-color: rgb(255 255 255 / 90%);
+            border-radius: .2rem;                    
+            padding: .2rem;
+        }
+
+        pre {
+            background-color: rgb(255 255 255 / 90%);
+            border-radius: .2rem;
+            padding: .4rem;
+            margin: .5rem 0;
+            overflow: auto;
+
+            code {
+                background-color: rgb(255 255 255 / 0%);
+                padding: 0;                        
+            }
+        }
+        
+        img {
+            display: block;
+            max-width: 80%;
+            margin: 1rem auto;
+        }
+
+        blockquote {
+            @include border-style(3px, left);
+            padding-left: .3rem;
+            margin-left: 2rem;
+        }
+
+        table {
+            border-collapse: collapse;
+
+            th {
+                @include border-style(2px);
+                padding: .1rem .4rem;
+                text-align: left;
+            }
+
+            tr {
+                @include border-style(2px);
+
+                td {
+                    @include border-style(2px, right);
+                    padding: .1rem .4rem;
+                }
+            }
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+
+            ul { margin: 0; }
+        }
+
+        ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+    }
+}

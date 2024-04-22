@@ -1,0 +1,10 @@
+@use './' as *;
+
+body {
+    @include flex(center); 
+    background-color: $clr-background;
+    
+    .container {
+        @include flex(center);
+    }
+}
